@@ -1,0 +1,43 @@
+#root {
+  max-width: 1280px;
+  margin: 0;
+  text-align: center;
+}
+
+main{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 64px
+}
+/* 
+div > img {
+  max-width: 100%; 
+  height: auto;    
+}
+*/
+
+img{
+  width: 70%;
+  cursor: pointer;
+}
+
+.row{
+  display: flex;
+  padding: 5px;
+  flex-wrap: wrap;
+}
+
+.column{
+  flex: 12%;
+  padding: 5px;
+}
+
+.column img{
+  margin-top: 5px;
+}
+
+.readBookList{
+  border: 5px groove #282727;
+  background-color: rgba(195, 195, 245, 0.374);
+  margin-top: 30px;
+}
