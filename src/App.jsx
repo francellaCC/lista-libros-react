@@ -4,24 +4,13 @@ import "./App.css";
 import { library as InitialState } from "./data/books.json";
 import Filters from "./components/Filters";
 import Books from "./components/Books";
+import { useFilters } from "./hooks/useFilters";
 
 function App() {
-  const [filters, setFilters] = useState({
-    genre: "all",
-    minPage: 0,
-  });
+  const {filters,setFilters,filtersBooks} = useFilters()
 
-  const filterProducts = (libros) => {
-    return libros.filter((libro) => {
-      return (
-        libro.book.pages >= filters.minPage &&
-        (filters.genre === "all" || libro.book.genre === filters.genre)
-      );
-    });
-  };
-
-  const listaLibros = filterProducts(InitialState);
-
+  const listaLibros = filtersBooks(InitialState);
+console.log(listaLibros)
 
 
   return (
