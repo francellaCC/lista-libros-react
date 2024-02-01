@@ -2,10 +2,10 @@ import { useState } from "react";
 import "./App.css";
 
 import { library as InitialState } from "./data/books.json";
+import Filters from "./components/Filters";
 import Books from "./components/Books";
 
 function App() {
-  const [libros] = useState(InitialState)
   const [filters, setFilters] = useState({
     genre: "all",
     minPage: 0,
@@ -20,8 +20,16 @@ function App() {
     });
   };
 
+  const listaLibros = filterProducts(InitialState);
 
-  return <Books listaLibros={filterProducts(libros)} setFilters={setFilters}/>;
+
+
+  return (
+    <>
+    <h1>Unkai <span>Book</span></h1>
+    <Books listaLibros={listaLibros} setFilters={setFilters} filters={filters}/>
+    </>
+  );
 }
 
 export default App;
