@@ -101,7 +101,9 @@ img{
 }
 
 .readBookList{
-  border: 5px groove #282727;
-  background-color: rgba(195, 195, 245, 0.374);
+  border: 5px groove #E2D6C9;
+  background-color: #EEE5DA;
   margin-top: 30px;
+  width: 100%;
+  height: 100vh;
 }
