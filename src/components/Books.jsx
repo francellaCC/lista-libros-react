@@ -1,25 +1,33 @@
 import React, { useEffect, useState } from "react";
 import Filters from "./Filters";
+import ReadingList from "./ReadingList";
+import AvailableBooks from "./AvailableBooks";
 
 function Books({ listaLibros, setFilters, filters }) {
+  // Estado para almacenar la lista de libros disponibles
   const [booksList, setBookList] = useState([]);
 
+  // Estado para almacenar la lista de lectura desde el localStorage
   const [listaLectura, setListaLectura] = useState(() => {
     const bookFromStorage = window.localStorage.getItem("listaLectura");
     return JSON.parse(bookFromStorage) ?? [];
   });
 
+  // Efecto para actualizar booksList cuando listaLibros cambia
   useEffect(() => {
     setBookList(listaLibros);
   }, [listaLibros]);
 
+  // Efecto para almacenar listaLectura en localStorage cuando cambia
   useEffect(() => {
     localStorage.setItem("listaLectura", JSON.stringify(listaLectura));
   }, [listaLectura]);
 
+  // Manejador de clic para agregar un libro a listaLectura y quitarlo de booksList
   const handleClick = (book) => {
     setListaLectura((prevLista) => [...prevLista, book]);
 
+    // Filtra el libro seleccionado de la lista de libros disponibles
     const updatedBooksList = booksList.filter(
       (item) => item.book.title !== book.title
     );
@@ -28,17 +36,20 @@ function Books({ listaLibros, setFilters, filters }) {
     setBookList(updatedBooksList);
   };
 
+  // Función para eliminar un libro de listaLectura y agregarlo a booksList si no está presente
   const deleteBook = (title) => {
+    // Busca el libro en listaLectura
     const book = listaLectura.find((item) => item.title === title);
 
+    // Verifica si el libro ya está en booksList
     const isBook = booksList.find((item) => item.book.title === book.title);
 
+    // Si no está en booksList, agrégalo
     if (!isBook) {
       setBookList((prevBooksList) => [...prevBooksList, { book }]);
     }
-    // Agrega el libro nuevamente a booksList
 
-    // Actualiza el estado listaLectura con el nuevo array filtrado
+    // Filtra el libro eliminado de listaLectura
     const updatedListaLectura = listaLectura.filter(
       (item) => item.title !== title
     );
@@ -49,38 +60,14 @@ function Books({ listaLibros, setFilters, filters }) {
   return (
     <main className="container">
       <div>
-        <h1>{booksList.length} Libros disponibles </h1>
 
+        <h1>{booksList.length} Libros disponibles </h1>
         <Filters setFilters={setFilters} filters={filters} />
-        <aside className="row">
-          {booksList.map((list) => {
-            return (
-              <div className="column">
-                <img
-                  onClick={() => handleClick(list.book)}
-                  src={list.book.cover}
-                  alt={list.book.title}
-                />
-              </div>
-            );
-          })}
-        </aside>
+        <AvailableBooks handleClick={handleClick} booksList={booksList}/>
       </div>
 
       {listaLectura.length > 0 && (
-        <div className="readBookList">
-          <h2>{listaLectura.length} Lista de lectura</h2>
-          <aside className="row">
-            {listaLectura?.map((listBook) => {
-              return (
-                <div className="column">
-                  <img src={listBook.cover} alt={listBook.title} />
-                  <button onClick={() => deleteBook(listBook.title)}>X</button>
-                </div>
-              );
-            })}
-          </aside>
-        </div>
+        <ReadingList deleteBook={deleteBook} listaLectura={listaLectura}/>
       )}
     </main>
   );
