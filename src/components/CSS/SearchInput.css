@@ -1,0 +1,13 @@
+.div_input{
+  margin-bottom: 20px;
+}
+
+.div_input input{
+  padding: 12px;
+  border-radius: 17px ;
+  background-color: #E6DBCD;
+  border: none;
+  width: 500px;
+  color: #917F74;
+  font-size: medium;
+}
