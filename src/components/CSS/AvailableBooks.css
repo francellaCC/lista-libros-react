@@ -1,0 +1,36 @@
+.columBook{
+
+  border: 1px solid #917F74;
+  padding-top: 20px;
+  margin: 12px;
+
+}
+
+.columBook h4{
+  margin-bottom: 0px;
+}
+
+.columBook p {
+  font-size: medium;
+  font-weight: 300;
+
+  margin-top: 0px;
+}
+
+.buttom_element{
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: none;
+  border: 1px solid #F5F5F5;
+  margin-bottom: 10px;
+  background-color: #F5F5F5;
+  color: #917F74 ;
+  border: 1px solid #917F74;
+  transition: 0.10ms ease-in ;
+  cursor: pointer;
+}
+
+.buttom_element:hover{
+  background-color: #917F74;
+  color:#F5F5F5 ;
+}

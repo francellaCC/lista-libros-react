@@ -1,0 +1,37 @@
+.readBookContent{
+  background-color: #EEE5DA;
+  margin-top: -27px;
+  width: 146%;
+}
+.rowList{
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+}
+.readBookContent_divList{
+  border: 1px solid;
+  margin: 12px;
+  padding: 10px;
+}
+.readBookContent_title{
+font-size: 1.5rem;
+font-weight: 600;
+}
+.readBookContent_subTitle{
+  font-size: medium;
+  font-weight: 400;
+}
+.readBookContent_button{
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: none;
+  background-color: #F5F5F5;
+  color: #917F74 ;
+  border: 1px solid #917F74;
+  transition: 0.10ms ease-in ;
+  cursor: pointer;
+}
+
+.readBookContent_button:hover{
+  background-color: #917F74;
+  color:#F5F5F5 ;
+}

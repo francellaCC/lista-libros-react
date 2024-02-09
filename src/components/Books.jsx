@@ -29,7 +29,7 @@ function Books({ listaLibros, setFilters, filters }) {
         <AvailableBooks handleClick={handleClick} booksList={booksList} />
       </div>
 
-      {listaLectura.length > 0 && <ReadingList listaLectura={listaLectura} deleteBook={deleteBook}/>}
+      <ReadingList listaLectura={listaLectura} deleteBook={deleteBook}/>
     </main>
   );
 }
