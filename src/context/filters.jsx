@@ -8,7 +8,7 @@ export const FilterContext = createContext()
 
 // Creacion del provaider 
 
-export function FilterProvaider({children}){
+export function FilterProvider({children}){
 
   const [filters, setFilters] = useState({
     genre: "all",

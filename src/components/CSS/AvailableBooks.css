@@ -34,3 +34,18 @@
   background-color: #917F74;
   color:#F5F5F5 ;
 }
+
+
+.row{
+  display: grid;
+  padding: 5px;
+}
+
+@media (min-width: 600px) {
+  .row { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 900px) {
+  .row{
+    grid-template-columns: repeat(4,minmax(0,1fr));
+  }
+}

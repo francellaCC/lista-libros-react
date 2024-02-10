@@ -1,11 +1,25 @@
 .readBookContent{
   background-color: #EEE5DA;
   margin-top: -27px;
-  width: 146%;
+  max-width: 146%;
 }
 .rowList{
+  grid-template-columns: repeat(4,minmax(0,1fr));
+}
+
+@media (min-width: 600px) {
+  .rowList{
   display: grid;
-  grid-template-columns: repeat(3,minmax(0,1fr));
+  padding: 5px;
+}
+}
+@media (min-width: 1442px) {
+  .readBookContent{
+    width: 146%;
+  }
+  .rowList{
+    grid-template-columns: repeat(3,minmax(0,1fr));
+  }
 }
 .readBookContent_divList{
   border: 1px solid;

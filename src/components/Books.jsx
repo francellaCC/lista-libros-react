@@ -3,6 +3,7 @@ import Filters from "./Filters";
 import ReadingList from "./ReadingList";
 import AvailableBooks from "./AvailableBooks";
 import { useBooks } from "../hooks/useBooks";
+import NavBar from "./NavBar";
 
 function Books({ listaLibros, setFilters, filters }) {
   const {
@@ -22,15 +23,20 @@ function Books({ listaLibros, setFilters, filters }) {
   // Función para eliminar un libro de listaLectura y agregarlo a booksList si no está presente
 
   return (
-    <main className="container">
-      <div>
-        <h1>{booksList.length} Libros disponibles </h1>
-        <Filters setFilters={setFilters} filters={filters} />
-        <AvailableBooks handleClick={handleClick} booksList={booksList} />
-      </div>
-
-      <ReadingList listaLectura={listaLectura} deleteBook={deleteBook}/>
-    </main>
+    <>
+      <NavBar listaLibros={listaLibros} />
+      <h1 className="title">
+        Unkai <span>Book</span>
+      </h1>
+      <main className="container">
+        <div>
+          <h1>{booksList.length} Libros disponibles </h1>
+          <Filters/>
+          <AvailableBooks handleClick={handleClick} booksList={booksList} />
+        </div>
+        <ReadingList listaLectura={listaLectura} deleteBook={deleteBook} />
+      </main>
+    </>
   );
 }
 
