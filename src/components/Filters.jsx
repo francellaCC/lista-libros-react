@@ -1,12 +1,12 @@
 import "./CSS/Filter.css";
 import InputMinPage from "./InputMinPage";
-import InputSearch from "./InputSearch";
+import SearchInput from "./SearchInput";
 import SelectGenre from "./SelectGenre";
 
 function Filters() {
   return (
     <>
-      <InputSearch />
+      <SearchInput />
       <section className="filters">
         <InputMinPage />
         <SelectGenre />

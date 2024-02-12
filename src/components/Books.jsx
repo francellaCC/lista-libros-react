@@ -5,12 +5,10 @@ import AvailableBooks from "./AvailableBooks";
 import { useBooks } from "../hooks/useBooks";
 import NavBar from "./NavBar";
 
-function Books({ listaLibros, setFilters, filters }) {
+function Books({ listaLibros}) {
   const {
     booksList,
-    setBookList,
     listaLectura,
-    setListaLectura,
     saveBook,
     deleteBook,
   } = useBooks(listaLibros);
@@ -19,9 +17,6 @@ function Books({ listaLibros, setFilters, filters }) {
   const handleClick = (book) => {
     saveBook(book);
   };
-
-  // Función para eliminar un libro de listaLectura y agregarlo a booksList si no está presente
-
   return (
     <>
       <NavBar listaLibros={listaLibros} />

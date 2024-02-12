@@ -10,6 +10,8 @@ export const useBooks = (listaLibros) => {
     return JSON.parse(bookFromStorage) ?? [];
   });
 
+  const[modal,setModal] =useState(false)
+
   // Efecto para actualizar booksList cuando listaLibros cambia
   useEffect(() => {
     setBookList(listaLibros);
@@ -52,5 +54,5 @@ export const useBooks = (listaLibros) => {
     // Actualiza el estado listaLectura después de setBookList
     setListaLectura(updatedListaLectura);
   };
-  return { booksList, setBookList, listaLectura, setListaLectura, saveBook, deleteBook };
+  return { booksList, setBookList, listaLectura, setListaLectura,modal,setModal, saveBook, deleteBook };
 };

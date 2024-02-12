@@ -7,7 +7,9 @@ export const useFilters = () => {
 
   const filtersBooks = (libros) => {
     return libros.filter((libro) => {
+      
       return (
+        libro.book.title.includes(filters.sortByTitle) &&
         libro.book.pages >= filters.minPage &&
         (filters.genre === "all" || libro.book.genre === filters.genre)
       );

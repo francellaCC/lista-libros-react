@@ -2,6 +2,9 @@
   background-color: #EEE5DA;
   margin-top: -27px;
   max-width: 146%;
+  border-radius: 5px;
+  box-shadow: #eee5da;
+  box-shadow: 0px 2px 6px 2px rgba(145,127,116,0.66);
 }
 .rowList{
   grid-template-columns: repeat(4,minmax(0,1fr));
@@ -13,6 +16,15 @@
   padding: 5px;
 }
 }
+@media (min-width: 900px) {
+  .readBookContent{
+    margin-right: 10px;
+  }
+  .rowList{
+    grid-template-columns: repeat(1,minmax(0,1fr));
+  }
+}
+
 @media (min-width: 1442px) {
   .readBookContent{
     width: 146%;

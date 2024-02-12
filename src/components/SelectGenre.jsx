@@ -4,7 +4,7 @@ import "./CSS/Filter.css";
 
 function SelectGenre() {
 
-  const {filters, setFilters } = useContext(FilterContext);
+  const {setFilters } = useContext(FilterContext);
   const handleChangeCategory = (event) => {
     setFilters((prevState) => ({
       ...prevState,

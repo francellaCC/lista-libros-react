@@ -13,6 +13,7 @@ export function FilterProvider({children}){
   const [filters, setFilters] = useState({
     genre: "all",
     minPage: 0,
+    sortByTitle: "",
   });
 
   return(
